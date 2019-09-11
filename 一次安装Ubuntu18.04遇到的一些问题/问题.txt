@@ -1,0 +1,23 @@
+1、关于网络问题
+①关于使用路由器作为交换机连接锐捷校园网问题
+a、登录命令：./rjsupplicant.sh -u 账号 -p 密码 -d1
+b、关于开启NetworkManager：
+首先看networkmanager有没有安装， dpkg -l | grep networkmanager , 
+如果没有输出，就说明没有装。安装networkmanager, sudo apt install networkmanager 。
+如果有输出，则已安装，有可能是服务没启动， 启动服务 sudo systemctl enable NetowrkManager ，sudo systemctl start NetowrkManager。 
+还不行的话，还有可能 是网卡关闭。打开就是了
+
+c、要关闭路由器的DHCP自动分配功能
+
+2、关于root账号问题
+a、启用root账号：
+输入：sudo passwd root ，然后更改root密码。输入：su root，是否可以进入root用户，如果出现前面root@用户名，就说明设置root用户的密码成功
+
+
+b、解决Ubuntu18.04不能使用Xhell连接root用户登录问题（参考：https://blog.csdn.net/qq_38712932/article/details/83618707）
+见图片：解决Ubuntu18.04不能使用Xhell连接root用户登录问题.png
+
+
+
+3、查看指定端口是否打开（参考：https://blog.csdn.net/ielhmps7796/article/details/83827460）
+第一个方法就是使用lsof -i:端口号命令行
